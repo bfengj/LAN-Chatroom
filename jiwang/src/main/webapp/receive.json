@@ -1,0 +1,36 @@
+[{
+    "name": "Mion",
+    "avatarid": "2",
+    "type": "text",
+    "content": "您吃了了吗？@Mion"
+}, {
+    "name": "rys<",
+    "avatarid": "4",
+    "type": "tap",
+    "content": "rys< 踢了踢 Mion"
+}, {
+    "name": "Mion",
+    "avatarid": "2",
+    "type": "audio",
+    "src": "assets/audio/1.mp3"
+}, {
+    "name": "rys<",
+    "avatarid": "4",
+    "type": "image",
+    "src": "assets/avatar/0.png"
+}, {
+    "name": "Mion",
+    "avatarid": "2",
+    "type": "video",
+    "src": "assets/video/1.mp4"
+}, {
+    "name": "rys<",
+    "avatarid": "4",
+    "type": "file",
+    "src": "assets/video/1.mp4"
+}, {
+    "name": "rys<",
+    "avatarid": "4",
+    "type": "videochat",
+    "content": "/stream.html"
+}]

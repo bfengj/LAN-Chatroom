@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
+    <meta name="description"
+        content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords"
+        content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>在线聊天室</title>
+    <link rel="apple-touch-icon" href="app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="app-assets/images/ico/favicon.ico">
+    <link href="assets/css/font.css" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/vendors.min.css">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/themes/semi-dark-layout.css">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/pages/app-chat.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/pages/app-chat-list.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- END: Custom CSS-->
+
+</head>
+<!-- END: Head-->
+
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern content-left-sidebar navbar-floating footer-static  "
+    data-open="click" data-menu="vertical-menu-modern" data-col="content-left-sidebar">
+    <!-- BEGIN: Content-->
+    <div class="app-content content chat-application">
+        <div class="content-area-wrapper container p-0">
+            <div class="content-right">
+                <div class="content-wrapper container p-0">
+                    <div class="content-header row">
+                    </div>
+                    <div class="content-body">
+                        <div class="body-content-overlay"></div>
+                        <!-- Main chat area -->
+                        <section class="chat-app-window">
+                            <!-- Active Chat -->
+                            <div class="active-chat">
+                                <!-- Chat Header -->
+                                <div class="chat-navbar">
+                                    <header class="chat-header">
+                                        <div class="d-flex align-items-center">
+                                            <h3 class="m-1">在线聊天室</h3>
+                                        </div>
+                                        <div class="d-flex align-items-center ">
+                                            <i data-feather="video" class="cursor-pointer font-medium-4 me-1"
+                                                onclick="startVideoChat();"></i>
+                                            <div class="position-relative d-inline-block me-1" id="userList"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i data-feather='users' class="cursor-pointer font-medium-4"></i>
+                                                <span class="badge rounded-pill bg-danger badge-up userCount"
+                                                    id="userCount">0</span>
+                                            </div>
+                                            <ul class="dropdown-menu" " aria-labelledby="userList">
+                                                <p class="text-center mb-0">当前在线人数：<span class="userCount">0</span></p>
+                                                <div id="userListPanel">
+
+                                                </div>
+                                                <!--<li>
+                                                    <span class="dropdown-item m-0 ">
+                                                        <span class="avatar avatar-sm">
+                                                            <img src="assets/avatar/0.png" alt="avatar" />
+                                                        </span>
+                                                        <span class="text-left ms-1">Action</span>
+                                                    </span>
+
+                                                </li>-->
+                                            </ul>
+                                            <i data-feather="refresh-cw" class="cursor-pointer font-medium-4"
+                                                onclick="location.reload();"></i>
+                                            <div class="position-relative d-inline-block m-1 avatar " id="profile"
+                                                data-bs-toggle="dropdown" aria-expanded="false"">
+                                                <img class=" round localavatar" src="assets/avatar/0.png" alt="avatar"
+                                                height="40" width="40">
+                                                <span class="avatar-status-online"></span>
+                                            </div>
+                                            <ul class="dropdown-menu text-center " aria-labelledby="profile">
+                                                <div class="avatar avatar-xl m-1" onclick="changeAvatar();">
+                                                    <img src="assets/avatar/0.png" alt="avatar" class="localavatar">
+                                                </div>
+                                                <p class="text-muted text-sm-center ">点击切换头像</p>
+                                                <div class="dropdown-divider"></div>
+                                                <p class="font-medium-3 fw-bolder mt-1">用户名</p>
+                                                <p class="font-medium-5 p-0" id="userName" onclick="changeUserName();">
+                                                </p>
+                                                <p class="text-muted text-sm-center">点击修改用户名</p>
+                                            </ul>
+                                        </div>
+                                    </header>
+                                </div>
+                                <!--/ Chat Header -->
+                                <!-- User Chat messages -->
+                                <div class="user-chats">
+                                    <div class="chats">
+                                        <div class="divider">
+                                            <div class="divider-text">- 您已加入聊天 -</div>
+                                        </div>
+                                        <!--<div class="chat">
+                                            <div class="chat-avatar"  onclick="sendTap(this);" name="Mion">
+                                                <span class="avatar avatar-lg box-shadow-1 cursor-pointer">
+                                                    <img src="assets/avatar/0.png" alt="avatar" height="42" width="42"
+                                                        class="localavatar" />
+                                                </span>
+                                            </div>
+                                            <div class="chat-body">
+                                                <h6 class="chat-name cursor-pointer" onclick="addText(' @'+$(this).text());">Mion</h6>
+                                                <div class="chat-content">
+                                                    <p>你搁哪干哈？ 😄</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="chat chat-left">
+                                            <div class="chat-avatar">
+                                                <span class="avatar avatar-lg bg-light-primary">
+                                                    <img src="assets/avatar/2.jpg" alt="avatar" height="42"
+                                                        width="42" />
+                                                </span>
+                                            </div>
+                                            <div class="chat-body">
+                                                <h6 class="chat-name">Mion</h6>
+                                                <div class="chat-content">
+                                                    <p>给你康点好康的~</p>
+                                                </div>
+                                                <div class="chat-content">
+                                                    <img src="assets/avatar/0.png" class="chat-img img-responsive"></img>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="chat">
+                                            <div class="chat-avatar">
+                                                <span class="avatar avatar-lg box-shadow-1 cursor-pointer">
+                                                    <img src="assets/avatar/1.jpg" alt="avatar" height="42" width="42"
+                                                        class="localavatar" />
+                                                </span>
+                                            </div>
+                                            <div class="chat-body">
+                                                <h6 class="chat-name">Mion</h6>
+                                                <div class="chat-content">
+                                                    <p>太棒了，我给你唱歌歌！</p>
+                                                </div>
+                                                <audio src="/assets/audio/1.mp3" id="233" style="display:none"></audio>
+                                                <button class="btn btn-info btn-play chat-content" value="233"
+                                                    onclick="playAudio(this);"><i data-feather='mic'></i> Play Audio
+                                                    Here</button>
+                                            </div>
+                                        </div>
+                                        <div class="chat chat-left">
+                                            <div class="chat-avatar">
+                                                <span class="avatar avatar-lg box-shadow-1 cursor-pointer">
+                                                    <img src="assets/avatar/2.jpg" alt="avatar" height="42"
+                                                        width="42" />
+                                                </span>
+                                            </div>
+                                            <div class="chat-body">
+                                                <h6 class="chat-name">Mion</h6>
+                                                <div class="chat-content">
+                                                    <p>太棒了，视频送给你！</p>
+                                                </div>
+                                                <div class="chat-content">
+                                                    <video src="assets/video/1.mp4" controls="controls"
+                                                        class="ratio"></video>
+                                                </div>
+                                                <a href="/assets/video/1.mp4" download="233.mp4"
+                                                    class="btn btn-play chat-content"><i data-feather='file'></i>
+                                                    点击下载文件</a>
+                                            </div>
+                                        </div>
+                                        <div class="chat">
+                                            <div class="chat-avatar">
+                                                <span class="avatar avatar-lg box-shadow-1 cursor-pointer">
+                                                    <img src="assets/avatar/1.jpg" alt="avatar" height="42" width="42"
+                                                        class="localavatar" />
+                                                </span>
+                                            </div>
+                                            <div class="chat-body">
+                                                <h6 class="chat-name">Mion</h6>
+                                                <div class="chat-content">
+                                                    <p>谢谢你,你真好~</p>
+                                                </div>
+                                                <a href="/assets/video/1.mp4" download="233.mp4"
+                                                    class="btn btn-play chat-content"><i data-feather='video'></i>
+                                                    加入视频通话
+                                                </a>
+                                            </div>
+                                        </div>-->
+                                    </div>
+                                </div>
+                                <form class="chat-app-form" action="javascript:void(0);" onsubmit="enterChat();">
+                                    <input type="file"  id="uploadFile" style="display: none;" onchange="" accept="" />
+                                    <div class="input-group input-group-merge me-1 form-send-message">
+                                        <span class="input-group-text" onclick="startRecording();"><i data-feather="mic"
+                                                class="cursor-pointer" data-bs-toggle="modal"
+                                                data-bs-target="#micpanel"></i></span>
+                                        <input type="text" class="form-control message"
+                                            placeholder="请输入..." />
+                                        <span class="input-group-text" id="uploadPanel" data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                            <label class="attachment-icon form-label mb-0">
+                                                <i data-feather="plus-square" class="cursor-pointer text-secondary"></i>
+                                            </label></span>
+                                        <ul class="dropdown-menu text-center " aria-labelledby="uploadPanel">
+                                            <li onclick="selectPhoto();">
+                                                <p class="dropdown-item m-0 onlineUser"><i data-feather='image'
+                                                        class="me-1"></i>图片</p>
+                                            </li>
+                                            <li onclick="selectAudio();">
+                                                <p class="dropdown-item m-0 onlineUser"><i data-feather='music'
+                                                        class="me-1"></i>音频</p>
+                                            </li>
+                                            <li onclick="selectVideo();">
+                                                <p class="dropdown-item m-0 onlineUser"><i data-feather='video'
+                                                        class="me-1"></i>视频</p>
+                                            </li>
+                                            <li onclick="selectDocument();">
+                                                <p class="dropdown-item m-0 onlineUser"><i data-feather='file'
+                                                        class="me-1"></i>文件</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <button type="button" class="btn btn-primary send" onclick="enterChat();">
+                                        <i data-feather="send" class="d-lg-none"></i>
+                                        <span class="d-none d-lg-block">Go</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+    <div class="modal fade" id="micpanel" tabindex="-1" aria-labelledby="panelTitle" style="display: none;"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <h5 class="modal-title" id="panelTitle">录音面板</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <span id="timer" class="display-4 m-1">00:00</span>
+                    <div class=".d-flex .align-items-center" id="recording">
+                        <div class="spinner-grow text-primary m-1" role="status">
+                        </div>
+                        <div class="spinner-grow text-secondary m-1" role="status">
+                        </div>
+                        <div class="spinner-grow text-success m-1" role="status">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="avatar bg-light-primary p-1" style="display: none;" id="playing"
+                        onclick="recorder.play();">
+                        <div class="avatar-content">
+                            <i data-feather='play-circle' style='width: 100%;height: 100%;'></i>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="finishRecording" type="button"
+                            class="btn btn-primary waves-effect waves-float waves-light m-2"
+                            onclick="stopRecording();">完成</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <!-- BEGIN: Footer-->
+    <!--<footer class="footer footer-static footer-light">
+        <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">Powered by <a
+                    href="https://www.qwq.cc/">Mion</a><span class="d-none d-sm-inline-block">, All rights
+                    Reserved</span></span><span class="float-md-end d-none d-md-block">Hand-crafted & Made with<i
+                    data-feather="heart"></i></span></p>
+    </footer>-->
+    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+    <!-- END: Footer-->
+
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="app-assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="app-assets/js/core/app-menu.js"></script>
+    <script src="app-assets/js/core/app.js"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="app-assets/js/scripts/pages/app-chat.js"></script>
+    <!-- END: Page JS-->
+    <script type="text/javascript" src="assets/js/recorder.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="assets/js/sweetalert2.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+    <script>
+        $(window).on('load', function () {
+            if (feather) {
+                feather.replace({
+                    width: 14,
+                    height: 14
+                });
+            }
+        })
+        
+    </script>
+</body>
+<!-- END: Body-->
+
+</html>
